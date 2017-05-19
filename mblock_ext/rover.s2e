@@ -1,0 +1,55 @@
+{	"extensionName": "Demo2",
+	"description": "A Demo Extension for Arduino",
+	"version": "1.1",
+	"author": "Seeed Studio(support@seed.com)",
+	"homepage": "seeed.com",
+	"sort":0,
+	"javascriptURL":"js/demo.js",
+  "firmware":"1.0",
+  "extensionPort":0,
+	"blockSpecs": [
+		["h","Demo Program","runArduino"],
+		[
+			"w",
+			"digitalWrite( %n , %d.digital )",
+			"digitalWrite",
+			"13",
+			"HIGH",
+			{
+				"setup":"pinMode({0},OUTPUT); \n",
+				"inc":"",
+				"def":"",
+				"work":"digitalWrite({0},{1});\n",
+				"loop":""
+			}
+		],
+		[
+			"w",
+			"blink",
+			"blink",
+			{
+				"setup":"",
+				"inc":"#include \"demo.h\"",
+				"def":"DemoClass demo; \n",
+				"work":"demo.blink(); \n",
+				"loop":""
+			}
+		]
+	],
+	"menus": {
+		"digital":["HIGH","LOW"]
+	},
+	"values":{
+		"HIGH":1,
+		"LOW":0
+	},
+	"translators":{
+		"zh_CN":{
+			"Demo Program":"演示程序",
+			"HIGH":"高电平",
+			"LOW":"低电平",
+			"digitalWrite( %n , %d.digital )":"数字口输出( %n ,%d.digital )",
+      "blink":"闪烁"
+		}
+	}
+}
