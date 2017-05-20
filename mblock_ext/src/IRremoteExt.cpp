@@ -73,7 +73,7 @@ void handelIRremote(){
 	}
 	
 	unsigned long cur_millis = millis();
-	if((cur_millis - __prev_millis) > 200){
+	if(__last_code != REPEAT && (cur_millis - __prev_millis) > 200){
 		
 		if(__last_code_H != -1 && __ir_handler[1][__last_code_H]){
 			__ir_handler[1][__last_code_H](__last_code);

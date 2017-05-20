@@ -39,7 +39,7 @@
 		[
 			"b",
 			"Is Remote %d.IRKeys Key Released",
-			"isKeyPressed",
+			"isKeyReleased",
 			"Power",
 			{
 				"encode":"{d0}",

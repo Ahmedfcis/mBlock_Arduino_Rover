@@ -1,0 +1,2 @@
+#!/bin/sh
+zip -r mblock_Rover_ext.zip src js rover.s2e
