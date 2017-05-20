@@ -10,16 +10,17 @@
     
 	ext.resetAll = function(){};
 	
-	ext.runArduino = function(){
+	ext.whenKeyPressed = function(key){
 		
 	};
-	ext.digitalWrite = function(pin,level) {
-        device.send([pin, levels[level]])
+	
+	ext.whenKeyReleased = function(key){
+		
+	};
+	
+	ext.setupIR = function(pin) {
+        
     };
-	var _level = 0;
-	ext.blink = function(){
-		device.send([0x22, 0x23])
-	}
 
     function processData(bytes) {
         trace(bytes);
@@ -50,7 +51,7 @@
             tryNextDevice();
             return;
         }
-        device.set_receive_handler('demo',function(data) {
+        device.set_receive_handler('rover',function(data) {
             processData(data);
         });
     };
@@ -66,10 +67,10 @@
     };
 
     ext._getStatus = function() {
-        if(!device) return {status: 1, msg: 'demo disconnected'};
-        return {status: 2, msg: 'demo connected'};
+        if(!device) return {status: 1, msg: 'Arduino Rover disconnected'};
+        return {status: 2, msg: 'Arduino Rover connected'};
     }
 
     var descriptor = {};
-	ScratchExtensions.register('demo', descriptor, ext, {type: 'serial'});
+	ScratchExtensions.register('rover', descriptor, ext, {type: 'serial'});
 })({});

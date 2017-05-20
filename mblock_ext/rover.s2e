@@ -1,55 +1,102 @@
-{	"extensionName": "Demo2",
-	"description": "A Demo Extension for Arduino",
-	"version": "1.1",
-	"author": "Seeed Studio(support@seed.com)",
-	"homepage": "seeed.com",
+{	"extensionName": "Arduino Rover",
+	"description": "Extend Arduino functionaly to support IR, DC Motor and Continous Servo",
+	"version": "0.8",
+	"author": "Ahmed Abdelhameed(ahmed.fcis@gmail.com)",
+	"homepage": "https://github.com/Ahmedfcis",
 	"sort":0,
-	"javascriptURL":"js/demo.js",
-  "firmware":"1.0",
-  "extensionPort":0,
+	"javascriptURL":"js/rover.js",
+	"firmware":"1.1.103",
+	"extensionPort":0,
 	"blockSpecs": [
-		["h","Demo Program","runArduino"],
 		[
 			"w",
-			"digitalWrite( %n , %d.digital )",
-			"digitalWrite",
-			"13",
-			"HIGH",
+			"Set Remote Receiver Pin %n",
+			"setupIR",
+			"2",
 			{
-				"setup":"pinMode({0},OUTPUT); \n",
+				"encode":"{d0}",
+				"setup":"beginIRremote({0});\n",
+				"inc":"#include \"IRremoteExt.h\"\n",
+				"def":"",
+				"work":"",
+				"loop":"handelIRremote();\n"
+			}
+		],
+		[
+			"b",
+			"Is Remote %d.IRKeys Key Pressed",
+			"isKeyPressed",
+			"Power",
+			{
+				"encode":"{d0}",
+				"setup":"",
 				"inc":"",
 				"def":"",
-				"work":"digitalWrite({0},{1});\n",
+				"work":"getPressedIRremote()=={0}",
 				"loop":""
 			}
 		],
 		[
-			"w",
-			"blink",
-			"blink",
+			"b",
+			"Is Remote %d.IRKeys Key Released",
+			"isKeyPressed",
+			"Power",
 			{
+				"encode":"{d0}",
 				"setup":"",
-				"inc":"#include \"demo.h\"",
-				"def":"DemoClass demo; \n",
-				"work":"demo.blink(); \n",
+				"inc":"",
+				"def":"",
+				"work":"isReleasedIRremote({0})",
 				"loop":""
 			}
 		]
 	],
 	"menus": {
-		"digital":["HIGH","LOW"]
+		"IRKeys":[
+					"Power",
+					"Mode",
+					"Mute",
+					"Play",
+					"Forward",
+					"Backward",
+					"EQ",
+					"- Key",
+					"+ Key",
+					"0 Key",
+					"Cross",
+					"SD",
+					"1 Key",
+					"2 Key",
+					"3 Key",
+					"4 Key",
+					"5 Key",
+					"6 Key",
+					"7 Key",
+					"8 Key",
+					"9 Key"
+				]
 	},
 	"values":{
-		"HIGH":1,
-		"LOW":0
-	},
-	"translators":{
-		"zh_CN":{
-			"Demo Program":"演示程序",
-			"HIGH":"高电平",
-			"LOW":"低电平",
-			"digitalWrite( %n , %d.digital )":"数字口输出( %n ,%d.digital )",
-      "blink":"闪烁"
-		}
+		"Power":0xFFA25D,
+		"Mode":0xFF629D,
+		"Mute":0xFFE21D,
+		"Play":0xFF22DD,
+		"Forward":0xFF02FD,
+		"Backward":0xFFC23D,
+		"EQ":0xFFE01F,
+		"- Key":0xFFA857,
+		"+ Key":0xFF906F,
+		"0 Key":0xFF6897,
+		"Cross":0xFF9867,
+		"SD":0xFFB04F,
+		"1 Key":0xFF30CF,
+		"2 Key":0xFF18E7,
+		"3 Key":0xFF7A85,
+		"4 Key":0xFF10EF,
+		"5 Key":0xFF38C7,
+		"6 Key":0xFF5AA5,
+		"7 Key":0xFF42BD,
+		"8 Key":0xFF4AB5,
+		"9 Key":0xFF52AD
 	}
 }

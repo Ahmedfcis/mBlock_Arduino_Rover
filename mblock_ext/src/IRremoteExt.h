@@ -5,10 +5,13 @@ typedef void (*__ir_handler_type)(unsigned long);
 
 extern void beginIRremote(int pin);
 
-void addPressHandlerIRremote(unsigned long code, __ir_handler_type func);
-void addReleaseHandlerIRremote(unsigned long code, __ir_handler_type func);
+extern void addPressHandlerIRremote(unsigned long code, __ir_handler_type func);
+extern void addReleaseHandlerIRremote(unsigned long code, __ir_handler_type func);
 
 extern void handelIRremote();
+extern unsigned long getPressedIRremote();
+extern bool isReleasedIRremote(unsigned long code);
+
 
 #define IR_CODE_PWR		0xFFA25D
 #define IR_CODE_MODE	0xFF629D

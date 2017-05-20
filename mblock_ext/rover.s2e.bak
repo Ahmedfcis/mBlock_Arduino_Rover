@@ -1,0 +1,26 @@
+		[	
+			"h",
+			"When Remote %d.IRKeys Key Pressed",
+			"procDef",
+			"Power",
+			{
+				"setup":"addPressHandlerIRremote({0},onPress{0});\n",
+				"inc":"",
+				"def":"void onPress{0}(unsigned long code)\n",
+				"work":"",
+				"loop":""
+			}
+		],
+		[	
+			"h",
+			"When Remote %d.IRKeys Key Released",
+			"whenKeyReleased",
+			"Power",
+			{
+				"setup":"addReleaseHandlerIRremote({0},onRelease{0});\n",
+				"inc":"",
+				"def":"void onRelease{0}(unsigned long code)\n",
+				"work":"",
+				"loop":""
+			}
+		],
