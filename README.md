@@ -1,14 +1,16 @@
 # mBlock Arduino Rover Extension (version 0.8)
-I am a father of eight years old boy, he always ask me to build him a Robot, but why not to build it himself. He has an accepted knowlage with block programing, but mBlock is missing alot of important blocks for Arduino boards with make this task.
+I am a father of eight years old boy, he always asks me to build him a Robot, but why not to build it himself. He has an accepted knowlage with block programing, but mBlock is missing alot of important blocks for Arduino boards with make this task.
 
 Rover extension aims to enable building simple Rover Robot with Arduino and mBlock, following are block types that Rover extension will implement:
-* Infra-Red (IR) blocks, which will enable receive and decode IR remote signal. these blocks depend on [Arduino-IRremote] (https://github.com/z3t0/Arduino-IRremote) version 0.1, which come with Arduino IDE.
+* Infra-Red (IR) blocks, which will enable receive and decode IR remote signal. these blocks depend on ![Arduino-IRremote] (https://github.com/z3t0/Arduino-IRremote) version 0.1, which come with Arduino IDE.
 
 ## Install
 To install **Rover Extension**, open **mBlock IDE**,
 * From **Extensions** menu item
 * Open **Manage Extensions** (short-cut *Ctrl+shift+T*)
 * Click **Available** button and search for "*Rover*"
+
+The current version runing only in Arduino mode. In other words, you need to click **Upload to Arduino** button in **Arduino mode** to upload and run your program. **Scratch mode** implementation is on the road map to enable debuging without burning to Arduino board.
 
 ## Build
 On linux,
